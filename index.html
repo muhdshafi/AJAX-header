@@ -1,0 +1,31 @@
+<html>
+<body>
+	<h2>Hello World!</h2>
+	<iframe src="http://localhost:8080/rest/hello1"></iframe>
+	<iframe name="targetframe"></iframe>
+	<div id="div1"><h2>Text</h2></div>
+	<button>Get External Content</button>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("button").click(function(){
+			    $.ajax({
+			    	type: "GET",
+			    	crossDomain: true,
+			    //	dataType: 'jsonp',
+			    		request.setRequestHeader("Authorization", "Basic AAAABBBBBCCCCC");
+			    	}, 
+			    	url: "http://localhost:8080/rest/hello1", 
+			    	success: function(result)
+			    	{
+			        	$("#div1").html(result);
+			    	}
+			    });
+			});
+		});
+		
+
+	</script>
+</body>
+</html>
